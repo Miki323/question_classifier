@@ -1,0 +1,25 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Styles</title>
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="static/css/style.css">
+
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="/">ГЛАВНАЯ</a></li>
+        <li><a href="/add_data">ДОБАВИТЬ ДАННЫЕ ДЛЯ ОБУЧЕНИЯ</a></li>
+        <li><a href="/train_model">ОБУЧЕНИЕ МОДЕЛИ</a></li>
+        <li><a href="/test_model">ТЕСТИРОВАНИЕ МОДЕЛИ</a></li>
+    </ul>
+</nav>
+{% block content %}
+{% endblock %}
+</body>
+</html>

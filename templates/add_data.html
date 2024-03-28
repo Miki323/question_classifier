@@ -1,0 +1,21 @@
+<!-- add_data.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="add-form">
+    <h1>Добавление данных</h1>
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+    <form action="/add_data" method="post">
+        <input type="text" id="text" name="text" class="text-input" placeholder="Текст вопроса"><br>
+        <select id="tag" name="tag" class="tag-select">
+            {% for tag in tags %}
+            <option value="{{ tag }}">{{ tag }}</option>
+            {% endfor %}
+        </select><br>
+        <input type="submit" value="Добавить данные" class="add-button">
+    </form>
+</div>
+
+{% endblock %}

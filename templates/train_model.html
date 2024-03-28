@@ -1,0 +1,91 @@
+<!-- train_model.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="train-model">
+    <h1>Обучение модели</h1>
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+    <form action="/train_model" method="post">
+        <button type="submit" class="train-button">Обучить модель</button>
+    </form>
+
+    <br>
+    <button onclick="showModelData()">Просмотр данных модели</button>
+    <div id="model-data" style="display: none;">
+        <h2>Данные для обучения модели</h2>
+        <table id="model-table">
+            <thead>
+            <tr>
+                <th>Текст вопроса</th>
+                <th>Тег</th>
+                <th>Действия</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in model_data %}
+            <tr>
+                <td>{{ item.text }}</td>
+                <td>{{ item.tag }}</td>
+                <td>
+                    <button onclick="deleteQuestion('{{ item.text }}')">Удалить</button>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div id="pagination" class="pagination">
+            {% for i in range(1, num_pages + 1) %}
+            <button onclick="setPage({{ i }})">{{ i }}</button>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+    function showModelData() {
+        var modelDataDiv = document.getElementById("model-data");
+        if (modelDataDiv.style.display === "none") {
+            modelDataDiv.style.display = "block";
+        } else {
+            modelDataDiv.style.display = "none";
+        }
+    }
+
+    function deleteQuestion(text) {
+        var form = document.createElement("form");
+        form.method = "POST";
+        form.action = "/delete_question";
+
+        var hiddenInput = document.createElement("input");
+        hiddenInput.type = "hidden";
+        hiddenInput.name = "text";
+        hiddenInput.value = text;
+
+        form.appendChild(hiddenInput);
+
+        document.body.appendChild(form);
+        form.submit();
+    }
+
+    function setPage(pageNum) {
+        var rows = document.getElementById("model-table").rows;
+        var totalRows = rows.length - 1;
+        var rowsPerPage = 6;
+        var startRow = (pageNum - 1) * rowsPerPage + 1;
+        var endRow = Math.min(startRow + rowsPerPage - 1, totalRows);
+
+        for (var i = 1; i < rows.length; i++) {
+            rows[i].style.display = "none";
+        }
+
+        // Show rows for current page
+        for (var i = startRow; i <= endRow; i++) {
+            rows[i].style.display = "";
+        }
+    }
+
+    setPage(1);
+</script>
+{% endblock %}

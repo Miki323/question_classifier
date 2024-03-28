@@ -1,0 +1,144 @@
+/* styles.css */
+
+/* Навигационное меню */
+nav {
+    background-color: black;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li a:hover {
+    color: lightgray;
+}
+
+/* Вкладка тренеровки */
+
+    .train-model {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #324233;
+        color: white;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    .pagination {
+        padding: 20px;
+        display: inline-block;
+    }
+
+    .pagination button {
+        background-color: #008CBA;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        margin: 0 2px;
+    }
+
+    .pagination button:hover {
+        background-color: #004a6e;
+    }
+
+/* Вкладка добавления данных */
+
+.add-form {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.text-input, .tag-select, .add-button {
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.add-button {
+    cursor: pointer;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.add-button:hover {
+    background-color: #45a049;
+}
+
+/* Вкладка тестов */
+
+.test-form {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.question-input {
+    padding: 8px;
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+.predict-button, .answer-button, .correct-button, .incorrect-button {
+    padding: 8px 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.predict-button:hover, .answer-button:hover, .correct-button:hover, .incorrect-button:hover {
+    background-color: #45a049;
+}
+
+.tag-select {
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
